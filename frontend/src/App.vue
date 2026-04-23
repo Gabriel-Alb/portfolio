@@ -2,71 +2,32 @@
   <div
     class="portfolio-shell relative min-h-screen overflow-x-hidden bg-[#020202] text-white"
   >
-    <!-- background -->
-    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+    <!-- background geral contínuo da página inteira -->
+    <div class="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      <!-- grande faixa central contínua -->
       <div
-        class="absolute bottom-[-180px] left-1/2 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-white/5 blur-3xl"
+        class="absolute left-1/2 top-[280px] h-[1200px] w-[160%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(178,200,188,0.22)_0%,rgba(178,200,188,0.14)_28%,rgba(178,194,195,0.08)_48%,rgba(2,2,2,0.03)_70%,rgba(2,2,2,0)_82%)] blur-3xl"
+      ></div>
+
+      <!-- reforço para a parte do about / meio da página -->
+      <div
+        class="absolute left-1/2 top-[900px] h-[900px] w-[140%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(178,200,188,0.12)_0%,rgba(178,194,195,0.07)_38%,rgba(2,2,2,0)_72%)] blur-3xl"
+      ></div>
+
+      <!-- orb inferior -->
+      <div
+        class="absolute bottom-[-220px] left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-white/5 blur-3xl"
       ></div>
     </div>
 
     <div class="relative z-10">
-      <!-- header -->
-      <header
-        class="sticky top-0 z-50 border-b border-white/10 bg-[#020202]/55 backdrop-blur-2xl"
-      >
-        <div
-          class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10 lg:px-16"
-        >
-          <a href="#home" class="text-lg font-medium tracking-tight text-white">
-            Gabriel
-          </a>
-
-          <nav class="ml-auto flex items-center gap-6 md:gap-8">
-            <a
-              v-for="item in navItems"
-              :key="item.label"
-              :href="item.href"
-              class="nav-letter-hover group relative block h-5 overflow-hidden text-sm font-normal"
-            >
-              <span class="sr-only">{{ item.label }}</span>
-
-              <span aria-hidden="true" class="flex">
-                <span
-                  v-for="(char, index) in item.label.split('')"
-                  :key="`top-${item.label}-${index}`"
-                  class="nav-letter inline-block text-[#B2C2C3]"
-                  :style="{ transitionDelay: `${index * 0.03}s` }"
-                >
-                  {{ char === " " ? "\u00A0" : char }}
-                </span>
-              </span>
-
-              <span aria-hidden="true" class="absolute left-0 top-full flex">
-                <span
-                  v-for="(char, index) in item.label.split('')"
-                  :key="`bottom-${item.label}-${index}`"
-                  class="nav-letter inline-block text-white"
-                  :style="{ transitionDelay: `${index * 0.03}s` }"
-                >
-                  {{ char === " " ? "\u00A0" : char }}
-                </span>
-              </span>
-            </a>
-          </nav>
-        </div>
-      </header>
+      <Header :nav-items="navItems" />
 
       <!-- hero -->
       <section
         id="home"
-        class="relative overflow-hidden px-6 pb-24 pt-1 md:px-10 md:pb-32 md:pt-2 lg:px-16 lg:pb-46 lg:pt-3"
+        class="relative px-6 pb-24 pt-1 md:px-10 md:pb-32 md:pt-2 lg:px-16 lg:pb-5 lg:pt-3"
       >
-        <div class="pointer-events-none absolute inset-0 overflow-hidden">
-          <div
-            class="absolute left-1/2 top-[100%] h-[600px] w-[150%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(178,200,188,0.22)_0%,rgba(178,200,188,0.14)_28%,rgba(178,194,195,0.08)_48%,rgba(2,2,2,0)_74%)] blur-3xl"
-          ></div>
-        </div>
-
         <div class="relative mx-auto max-w-7xl">
           <div
             class="flex min-h-[62vh] flex-col items-start justify-between gap-14 pt-0 md:min-h-[64vh] md:pt-1 lg:flex-row lg:items-center lg:gap-10"
@@ -113,12 +74,90 @@
           </div>
         </div>
       </section>
+
+      <!-- segunda seção -->
+      <section
+        id="about"
+        ref="aboutSection"
+        class="relative px-6 py-20 md:px-10 lg:px-16"
+      >
+        <div class="mx-auto max-w-6xl">
+          <div class="grid items-stretch gap-6 lg:grid-cols-12">
+            <!-- foto -->
+            <article
+              class="portfolio-card about-animated-card lg:col-span-4 rounded-[28px] border border-white/10 bg-white/[0.04] p-5 md:p-6"
+              :style="photoCardStyle"
+            >
+              <div
+                class="flex min-h-[320px] flex-col items-center justify-center rounded-[22px] border border-white/10 bg-white/[0.03] p-6"
+              ></div>
+            </article>
+
+            <!-- lado direito -->
+            <div class="grid gap-6 self-center lg:col-span-8">
+              <article
+                class="portfolio-card about-animated-card rounded-[28px] border border-white/10 bg-white/[0.04] p-6 md:p-7"
+                :style="rightTopCardStyle"
+              >
+                <h3 class="text-xl font-semibold text-white">
+                  Perfil profissional
+                </h3>
+
+                <p class="mt-4 text-sm leading-7 text-white/65">
+                  Sou desenvolvedor com experiência na criação de aplicações
+                  modernas, componentização de interfaces e construção de
+                  soluções completas do frontend ao backend, sempre priorizando
+                  clareza, escalabilidade e boa usabilidade.
+                </p>
+              </article>
+
+              <article
+                class="portfolio-card about-animated-card rounded-[28px] border border-white/10 bg-white/[0.04] p-6 md:p-7"
+                :style="rightBottomCardStyle"
+              >
+                <span class="text-xs uppercase tracking-[0.24em] text-white/45">
+                  Formação
+                </span>
+
+                <div class="mt-6 grid gap-4 sm:grid-cols-3">
+                  <div
+                    class="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                  >
+                    <p class="text-sm font-medium text-white">Senac</p>
+                    <p class="mt-2 text-sm leading-6 text-white/55">
+                      Análise e Desenvolvimento de Sistemas
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                  >
+                    <p class="text-sm font-medium text-white">EBAC</p>
+                    <p class="mt-2 text-sm leading-6 text-white/55">Design</p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                  >
+                    <p class="text-sm font-medium text-white">USP MBA</p>
+                    <p class="mt-2 text-sm leading-6 text-white/55">
+                      Engenharia de Software
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
 
 <script setup>
-import PrismCoin from "./components/base/PrismCoin.vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import Header from "./components/layouts/Header.vue";
+import PrismCoin from "./components/visual/PrismCoin.vue";
 
 const navItems = [
   { label: "Sobre", href: "#about" },
@@ -126,6 +165,80 @@ const navItems = [
   { label: "Projetos", href: "#projects" },
   { label: "Contato", href: "#contact" },
 ];
+
+const aboutSection = ref(null);
+const aboutProgress = ref(0);
+
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function updateAboutAnimation() {
+  if (!aboutSection.value || typeof window === "undefined") return;
+
+  const rect = aboutSection.value.getBoundingClientRect();
+  const viewportHeight = window.innerHeight || 1;
+
+  const start = viewportHeight * 0.92;
+  const end = viewportHeight * 0.18;
+
+  const progress = (start - rect.top) / (start - end);
+  aboutProgress.value = clamp(progress, 0, 1);
+}
+
+function onScroll() {
+  updateAboutAnimation();
+}
+
+const photoCardStyle = computed(() => {
+  const progress = aboutProgress.value;
+  const translateX = -140 * (1 - progress);
+  const opacity = 0.2 + progress * 0.8;
+  const blur = 10 * (1 - progress);
+
+  return {
+    transform: `translate3d(${translateX}px, 0, 0)`,
+    opacity: opacity,
+    filter: `blur(${blur}px)`,
+  };
+});
+
+const rightTopCardStyle = computed(() => {
+  const progress = aboutProgress.value;
+  const translateX = 140 * (1 - progress);
+  const opacity = 0.2 + progress * 0.8;
+  const blur = 10 * (1 - progress);
+
+  return {
+    transform: `translate3d(${translateX}px, 0, 0)`,
+    opacity: opacity,
+    filter: `blur(${blur}px)`,
+  };
+});
+
+const rightBottomCardStyle = computed(() => {
+  const progress = aboutProgress.value;
+  const translateX = 180 * (1 - progress);
+  const opacity = 0.2 + progress * 0.8;
+  const blur = 10 * (1 - progress);
+
+  return {
+    transform: `translate3d(${translateX}px, 0, 0)`,
+    opacity: opacity,
+    filter: `blur(${blur}px)`,
+  };
+});
+
+onMounted(() => {
+  updateAboutAnimation();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", updateAboutAnimation);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", onScroll);
+  window.removeEventListener("resize", updateAboutAnimation);
+});
 </script>
 
 <style>
@@ -175,6 +288,29 @@ const navItems = [
   animation-delay: 0.96s;
 }
 
+.portfolio-card {
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.about-animated-card {
+  will-change: transform, opacity, filter;
+}
+
+.card-label {
+  display: inline-flex;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.35rem 0.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #b2c8bc;
+}
+
 @keyframes heroContinuousRise {
   from {
     opacity: 0;
@@ -201,19 +337,6 @@ const navItems = [
     filter: blur(0);
     transform: translate3d(0, 0, 0);
   }
-}
-
-.nav-letter {
-  transform: translateY(0);
-  transition:
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    color 0.32s ease;
-  will-change: transform;
-}
-
-.nav-letter-hover:hover .nav-letter,
-.nav-letter-hover:focus-visible .nav-letter {
-  transform: translateY(-100%);
 }
 
 @media (max-width: 1023px) {
