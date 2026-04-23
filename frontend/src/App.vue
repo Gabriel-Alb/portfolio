@@ -2,16 +2,21 @@
   <div
     class="portfolio-shell relative min-h-screen overflow-x-hidden bg-[#020202] text-white"
   >
-    <!-- background geral contínuo da página inteira -->
+    <!-- background geral -->
     <div class="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-      <!-- grande faixa central contínua -->
+      <!-- faixa colorida principal -->
       <div
-        class="absolute left-1/2 top-[280px] h-[1200px] w-[160%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(178,200,188,0.22)_0%,rgba(178,200,188,0.14)_28%,rgba(178,194,195,0.08)_48%,rgba(2,2,2,0.03)_70%,rgba(2,2,2,0)_82%)] blur-3xl"
+        class="absolute left-1/2 top-[260px] h-[1180px] w-[160%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(178,200,188,0.22)_0%,rgba(178,200,188,0.14)_28%,rgba(178,194,195,0.08)_48%,rgba(2,2,2,0.04)_70%,rgba(2,2,2,0)_82%)] blur-3xl"
       ></div>
 
-      <!-- reforço para a parte do about / meio da página -->
+      <!-- reforço no about -->
       <div
-        class="absolute left-1/2 top-[900px] h-[900px] w-[140%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(178,200,188,0.12)_0%,rgba(178,194,195,0.07)_38%,rgba(2,2,2,0)_72%)] blur-3xl"
+        class="absolute left-1/2 top-[980px] h-[760px] w-[140%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(178,200,188,0.12)_0%,rgba(178,194,195,0.07)_36%,rgba(2,2,2,0)_74%)] blur-3xl"
+      ></div>
+
+      <!-- transição para escurecer após o about -->
+      <div
+        class="absolute inset-x-0 top-[1380px] h-[1200px] bg-[linear-gradient(to_bottom,rgba(2,2,2,0)_0%,rgba(2,2,2,0.35)_18%,rgba(2,2,2,0.72)_42%,rgba(2,2,2,0.94)_68%,rgba(2,2,2,1)_100%)]"
       ></div>
 
       <!-- orb inferior -->
@@ -75,7 +80,7 @@
         </div>
       </section>
 
-      <!-- segunda seção -->
+      <!-- about -->
       <section
         id="about"
         ref="aboutSection"
@@ -83,17 +88,17 @@
       >
         <div class="mx-auto max-w-6xl">
           <div class="grid items-stretch gap-6 lg:grid-cols-12">
-            <!-- foto -->
             <article
               class="portfolio-card about-animated-card lg:col-span-4 rounded-[28px] border border-white/10 bg-white/[0.04] p-5 md:p-6"
               :style="photoCardStyle"
             >
               <div
                 class="flex min-h-[320px] flex-col items-center justify-center rounded-[22px] border border-white/10 bg-white/[0.03] p-6"
-              ></div>
+              >
+                <span class="text-sm text-white/35">Sua foto aqui</span>
+              </div>
             </article>
 
-            <!-- lado direito -->
             <div class="grid gap-6 self-center lg:col-span-8">
               <article
                 class="portfolio-card about-animated-card rounded-[28px] border border-white/10 bg-white/[0.04] p-6 md:p-7"
@@ -150,6 +155,115 @@
           </div>
         </div>
       </section>
+
+      <!-- skills -->
+      <section
+        id="skills"
+        class="relative px-6 pb-24 pt-14 md:px-10 md:pb-28 md:pt-20 lg:px-16 lg:pb-32"
+      >
+        <div class="mx-auto max-w-7xl">
+          <div class="max-w-3xl">
+
+            <h2
+              class="mt-6 text-3xl font-light leading-[1.02] tracking-[-0.05em] text-white md:text-5xl"
+            >
+              Tecnologias e competências principais
+            </h2>
+
+            <p class="mt-5 max-w-2xl text-sm leading-7 text-white/60 md:text-base">
+              Ferramentas e áreas que utilizo para construir aplicações
+              modernas, organizadas e com foco em experiência, performance e
+              manutenção.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            <article class="skill-card">
+              <div class="skill-card-top">
+                <span class="skill-badge">Frontend</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <h3 class="skill-title">Vue.js</h3>
+              <p class="skill-description">
+                Criação de interfaces componentizadas, escaláveis e com foco em
+                organização, reaproveitamento e boa experiência do usuário.
+              </p>
+            </article>
+
+            <article class="skill-card">
+              <div class="skill-card-top">
+                <span class="skill-badge">Linguagem</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <h3 class="skill-title">JavaScript</h3>
+              <p class="skill-description">
+                Base para lógica, interações, manipulação de dados e construção
+                de aplicações modernas no frontend e backend.
+              </p>
+            </article>
+
+            <article class="skill-card">
+              <div class="skill-card-top">
+                <span class="skill-badge">Estilo</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <h3 class="skill-title">Tailwind CSS</h3>
+              <p class="skill-description">
+                Estruturação visual rápida e consistente, com foco em layouts
+                limpos, responsivos e visual refinado.
+              </p>
+            </article>
+
+            <article class="skill-card">
+              <div class="skill-card-top">
+                <span class="skill-badge">Backend</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <h3 class="skill-title">Node.js</h3>
+              <p class="skill-description">
+                Desenvolvimento de APIs, regras de negócio, integrações e
+                estrutura de aplicação ponta a ponta.
+              </p>
+            </article>
+
+            <article class="skill-card">
+              <div class="skill-card-top">
+                <span class="skill-badge">Backend</span>
+                <span class="skill-level">Intermediário</span>
+              </div>
+              <h3 class="skill-title">Express</h3>
+              <p class="skill-description">
+                Organização de rotas, middlewares, autenticação e exposição de
+                serviços de forma clara e escalável.
+              </p>
+            </article>
+
+            <article class="skill-card">
+              <div class="skill-card-top">
+                <span class="skill-badge">Design</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <h3 class="skill-title">UX/UI</h3>
+              <p class="skill-description">
+                Aplicação de princípios de usabilidade, hierarquia visual e
+                consistência para interfaces mais intuitivas e agradáveis.
+              </p>
+            </article>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <span class="tech-pill">HTML</span>
+            <span class="tech-pill">CSS</span>
+            <span class="tech-pill">Responsividade</span>
+            <span class="tech-pill">Componentização</span>
+            <span class="tech-pill">APIs</span>
+            <span class="tech-pill">Autenticação</span>
+            <span class="tech-pill">Integrações</span>
+            <span class="tech-pill">Arquitetura</span>
+            <span class="tech-pill">Performance</span>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -198,7 +312,7 @@ const photoCardStyle = computed(() => {
 
   return {
     transform: `translate3d(${translateX}px, 0, 0)`,
-    opacity: opacity,
+    opacity,
     filter: `blur(${blur}px)`,
   };
 });
@@ -211,7 +325,7 @@ const rightTopCardStyle = computed(() => {
 
   return {
     transform: `translate3d(${translateX}px, 0, 0)`,
-    opacity: opacity,
+    opacity,
     filter: `blur(${blur}px)`,
   };
 });
@@ -224,7 +338,7 @@ const rightBottomCardStyle = computed(() => {
 
   return {
     transform: `translate3d(${translateX}px, 0, 0)`,
-    opacity: opacity,
+    opacity,
     filter: `blur(${blur}px)`,
   };
 });
@@ -309,6 +423,77 @@ onBeforeUnmount(() => {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #b2c8bc;
+}
+
+.skill-card {
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1.5rem;
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.skill-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.skill-badge {
+  display: inline-flex;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.32rem 0.72rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.skill-level {
+  font-size: 0.76rem;
+  color: rgba(178, 200, 188, 0.9);
+}
+
+.skill-title {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.skill-description {
+  margin-top: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.62rem 0.95rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 @keyframes heroContinuousRise {
