@@ -1,13 +1,8 @@
 <template>
   <div class="prism-coin-mask">
     <div ref="viewerWrap" class="prism-coin-stage" @wheel.capture.prevent>
-      <spline-viewer
-        v-if="ready"
-        ref="viewerEl"
-        class="spline-viewer"
-        :url="sceneUrl"
-        loading-anim-type="none"
-      ></spline-viewer>
+      <spline-viewer v-if="ready" ref="viewerEl" class="spline-viewer" :url="sceneUrl"
+        loading-anim-type="none"></spline-viewer>
     </div>
   </div>
 </template>
