@@ -17,9 +17,10 @@ const greetings = [
     'أهلا',
     'Hola',
     '你好',
-    'Ciao',
+    'Hallo',
     'こんにちは',
-    'Hallo'
+    'হ্যালো',
+    'Ciao',
 ]
 
 let timeline
