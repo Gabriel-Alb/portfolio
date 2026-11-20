@@ -1,0 +1,27 @@
+@theme {
+  --color-canvas: #fafafa;
+  --color-ink: #111111;
+  --color-muted: #737373;
+  --color-accent: #303030;
+  --color-surface: #ffffff;
+  --color-border: #e5e5e5;
+
+  --font-sans: "DM Sans", Arial, sans-serif;
+  --font-display: "Space Grotesk", Arial, sans-serif;
+}
+
+:root {
+  --container-max: 1440px;
+  --page-gutter: clamp(20px, 4vw, 80px);
+  --section-spacing: clamp(80px, 10vw, 160px);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-pill: 999px;
+
+  --transition-fast: 0.3s;
+  --transition-normal: 0.5s;
+  --transition-slow: 0.8s;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
