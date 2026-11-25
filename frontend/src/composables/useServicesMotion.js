@@ -32,6 +32,9 @@ export function useServicesMotion({ sectionRef, activeIndex }) {
 
     if (!section) return
 
+    const homeFlow = section.closest('[data-home-flow]')
+    const nextSection = homeFlow?.querySelector('.next-section')
+
     const track = section.querySelector('[data-services-list]')
     const content = section.querySelector('[data-services-content]')
 
@@ -155,6 +158,15 @@ export function useServicesMotion({ sectionRef, activeIndex }) {
 
         scrollDistance = start
 
+        const exitDistance = nextSection
+          ? viewportHeight
+          : 0
+
+        const bottomPadding =
+          parseFloat(
+            window.getComputedStyle(section).paddingBottom,
+          ) || 0
+
         track.style.setProperty(
           '--services-top',
           `${TOP_OFFSET}px`,
@@ -162,8 +174,14 @@ export function useServicesMotion({ sectionRef, activeIndex }) {
 
         content.style.height = `${contentHeight}px`
 
-        track.style.height =
-          `${contentHeight + scrollDistance}px`
+        track.style.height = `${
+          contentHeight + scrollDistance + exitDistance
+        }px`
+
+        homeFlow?.style.setProperty(
+          '--services-exit-overlap',
+          `${nextSection ? exitDistance + bottomPadding : 0}px`,
+        )
       }
 
       function render(progress) {
@@ -280,6 +298,10 @@ export function useServicesMotion({ sectionRef, activeIndex }) {
         track.style.removeProperty('height')
         track.style.removeProperty('--services-top')
         content.style.removeProperty('height')
+
+        homeFlow?.style.removeProperty(
+          '--services-exit-overlap',
+        )
 
         gsap.set(items, {
           clearProps: 'transform,clipPath,zIndex',

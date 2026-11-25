@@ -1,50 +1,50 @@
 export const orbitProjects = [
   {
-    src: "/images/orbit/01.jpg",
+    src: "/images/orbit/01.png",
     title: "Visual portrait",
   },
   {
-    src: "/images/orbit/02.jpg",
+    src: "/images/orbit/01.png",
     title: "Gradient editorial",
   },
   {
-    src: "/images/orbit/03.jpg",
+    src: "/images/orbit/01.png",
     title: "Interior concept",
   },
   {
-    src: "/images/orbit/04.jpg",
+    src: "/images/orbit/01.png",
     title: "Digital gallery",
   },
   {
-    src: "/images/orbit/05.jpg",
+    src: "/images/orbit/01.png",
     title: "Red eyewear",
   },
   {
-    src: "/images/orbit/06.jpg",
+    src: "/images/orbit/01.png",
     title: "Architecture",
   },
   {
-    src: "/images/orbit/07.jpg",
+    src: "/images/orbit/01.png",
     title: "Product render",
   },
   {
-    src: "/images/orbit/08.jpg",
+    src: "/images/orbit/01.png",
     title: "Blue artwork",
   },
   {
-    src: "/images/orbit/09.jpg",
+    src: "/images/orbit/01.png",
     title: "Editorial campaign",
   },
   {
-    src: "/images/orbit/10.jpg",
+    src: "/images/orbit/01.png",
     title: "Sneaker project",
   },
   {
-    src: "/images/orbit/11.jpg",
+    src: "/images/orbit/01.png",
     title: "Product shot",
   },
   {
-    src: "/images/orbit/12.jpg",
+    src: "/images/orbit/01.png",
     title: "Graphic identity",
   },
 ];
